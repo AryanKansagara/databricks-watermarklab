@@ -1,0 +1,9 @@
+{
+  "company": "Databricks",
+  "title": "WatermarkLab",
+  "test_command": "python -m unittest discover -v",
+  "demo_command": "python watermarklab.py --output demo.json",
+  "scope": "Deterministic local operator policy model and batch oracle; no Spark execution",
+  "implemented": true,
+  "integration_status": "unverified"
+}

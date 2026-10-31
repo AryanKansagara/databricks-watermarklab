@@ -1,0 +1,955 @@
+{
+  "schema_version": 1,
+  "scope": "local deterministic model; no managed-runtime cost/throughput claims",
+  "batch_boundaries": [
+    [
+      {
+        "id": "order-0",
+        "time": 0,
+        "amount": 11
+      },
+      {
+        "id": "order-1",
+        "time": 2,
+        "amount": 13
+      },
+      {
+        "id": "order-2",
+        "time": 4,
+        "amount": 3
+      },
+      {
+        "id": "order-3",
+        "time": 6,
+        "amount": 12
+      },
+      {
+        "id": "order-4",
+        "time": 8,
+        "amount": 17
+      },
+      {
+        "id": "late-original",
+        "time": 1,
+        "amount": 20
+      }
+    ],
+    [
+      {
+        "id": "order-0",
+        "time": 0,
+        "amount": 11
+      },
+      {
+        "id": "order-5",
+        "time": 10,
+        "amount": 2
+      },
+      {
+        "id": "order-7",
+        "time": 14,
+        "amount": 3
+      },
+      {
+        "id": "order-9",
+        "time": 18,
+        "amount": 2
+      }
+    ],
+    [
+      {
+        "id": "order-7",
+        "time": 14,
+        "amount": 3
+      },
+      {
+        "id": "order-10",
+        "time": 20,
+        "amount": 8
+      },
+      {
+        "id": "order-12",
+        "time": 24,
+        "amount": 2
+      },
+      {
+        "id": "order-13",
+        "time": 26,
+        "amount": 2
+      }
+    ],
+    [
+      {
+        "id": "order-15",
+        "time": 30,
+        "amount": 5
+      },
+      {
+        "id": "order-17",
+        "time": 34,
+        "amount": 18
+      },
+      {
+        "id": "order-18",
+        "time": 36,
+        "amount": 4
+      },
+      {
+        "id": "order-19",
+        "time": 38,
+        "amount": 12
+      }
+    ],
+    [
+      {
+        "id": "order-6",
+        "time": 12,
+        "amount": 14
+      },
+      {
+        "id": "order-8",
+        "time": 16,
+        "amount": 3
+      },
+      {
+        "id": "order-16",
+        "time": 32,
+        "amount": 19
+      },
+      {
+        "id": "order-20",
+        "time": 40,
+        "amount": 18
+      },
+      {
+        "id": "order-21",
+        "time": 42,
+        "amount": 19
+      }
+    ],
+    [
+      {
+        "id": "order-11",
+        "time": 22,
+        "amount": 19
+      },
+      {
+        "id": "order-14",
+        "time": 28,
+        "amount": 10
+      },
+      {
+        "id": "order-21",
+        "time": 42,
+        "amount": 19
+      },
+      {
+        "id": "order-27",
+        "time": 54,
+        "amount": 8
+      },
+      {
+        "id": "order-28",
+        "time": 56,
+        "amount": 8
+      },
+      {
+        "id": "clock-skew",
+        "time": 250,
+        "amount": 1
+      }
+    ],
+    [
+      {
+        "id": "order-14",
+        "time": 28,
+        "amount": 10
+      },
+      {
+        "id": "order-26",
+        "time": 52,
+        "amount": 12
+      },
+      {
+        "id": "order-28",
+        "time": 56,
+        "amount": 8
+      },
+      {
+        "id": "order-29",
+        "time": 58,
+        "amount": 19
+      },
+      {
+        "id": "order-32",
+        "time": 64,
+        "amount": 10
+      }
+    ],
+    [
+      {
+        "id": "order-22",
+        "time": 44,
+        "amount": 7
+      },
+      {
+        "id": "order-23",
+        "time": 46,
+        "amount": 18
+      },
+      {
+        "id": "order-24",
+        "time": 48,
+        "amount": 11
+      },
+      {
+        "id": "order-34",
+        "time": 68,
+        "amount": 6
+      },
+      {
+        "id": "order-36",
+        "time": 72,
+        "amount": 14
+      }
+    ],
+    [
+      {
+        "id": "order-25",
+        "time": 50,
+        "amount": 19
+      },
+      {
+        "id": "order-37",
+        "time": 74,
+        "amount": 3
+      },
+      {
+        "id": "order-38",
+        "time": 76,
+        "amount": 11
+      }
+    ],
+    [
+      {
+        "id": "order-30",
+        "time": 60,
+        "amount": 17
+      },
+      {
+        "id": "order-31",
+        "time": 62,
+        "amount": 11
+      },
+      {
+        "id": "order-33",
+        "time": 66,
+        "amount": 4
+      }
+    ],
+    [
+      {
+        "id": "order-35",
+        "time": 70,
+        "amount": 5
+      },
+      {
+        "id": "order-39",
+        "time": 78,
+        "amount": 16
+      },
+      {
+        "id": "late-original",
+        "time": 260,
+        "amount": 20
+      }
+    ],
+    [
+      {
+        "id": "order-35",
+        "time": 70,
+        "amount": 5
+      },
+      {
+        "id": "very-late",
+        "time": 3,
+        "amount": 30
+      }
+    ]
+  ],
+  "policies": [
+    {
+      "scope": "deterministic authored operator model; not Spark execution",
+      "policy": {
+        "delay": 5,
+        "window": 10,
+        "terminal_flush": true
+      },
+      "oracle": {
+        "10": 106,
+        "20": 24,
+        "30": 41,
+        "40": 58,
+        "50": 73,
+        "60": 66,
+        "260": 1,
+        "70": 48,
+        "80": 49
+      },
+      "output": {
+        "10": 76,
+        "20": 7,
+        "30": 12,
+        "40": 39,
+        "50": 37,
+        "60": 16,
+        "260": 1,
+        "270": 20
+      },
+      "open_aggregates": {},
+      "metrics": {
+        "absolute_aggregate_error": 298,
+        "lost_distinct_ids": 22,
+        "duplicate_leakage": 1,
+        "dropped_late_deliveries": 26,
+        "peak_state_rows": 12,
+        "peak_state_json_bytes": 173,
+        "max_finalize_delay_batches": 7,
+        "finalized_window_count": 8,
+        "pending_window_count": 0,
+        "latency_censored": false,
+        "oldest_pending_age_batches": null
+      },
+      "trace": [
+        {
+          "batch": 0,
+          "events": 6,
+          "watermark": -1,
+          "state_rows": 7,
+          "state_json_bytes": 114,
+          "finalized_windows": {}
+        },
+        {
+          "batch": 1,
+          "events": 4,
+          "watermark": 3,
+          "state_rows": 11,
+          "state_json_bytes": 160,
+          "finalized_windows": {}
+        },
+        {
+          "batch": 2,
+          "events": 4,
+          "watermark": 13,
+          "state_rows": 8,
+          "state_json_bytes": 122,
+          "finalized_windows": {
+            "10": 76
+          }
+        },
+        {
+          "batch": 3,
+          "events": 4,
+          "watermark": 21,
+          "state_rows": 10,
+          "state_json_bytes": 153,
+          "finalized_windows": {
+            "10": 76,
+            "20": 7
+          }
+        },
+        {
+          "batch": 4,
+          "events": 5,
+          "watermark": 33,
+          "state_rows": 8,
+          "state_json_bytes": 126,
+          "finalized_windows": {
+            "10": 76,
+            "20": 7,
+            "30": 12
+          }
+        },
+        {
+          "batch": 5,
+          "events": 6,
+          "watermark": 37,
+          "state_rows": 12,
+          "state_json_bytes": 173,
+          "finalized_windows": {
+            "10": 76,
+            "20": 7,
+            "30": 12
+          }
+        },
+        {
+          "batch": 6,
+          "events": 5,
+          "watermark": 245,
+          "state_rows": 2,
+          "state_json_bytes": 51,
+          "finalized_windows": {
+            "10": 76,
+            "20": 7,
+            "30": 12,
+            "40": 39,
+            "50": 37,
+            "60": 16
+          }
+        },
+        {
+          "batch": 7,
+          "events": 5,
+          "watermark": 245,
+          "state_rows": 2,
+          "state_json_bytes": 51,
+          "finalized_windows": {
+            "10": 76,
+            "20": 7,
+            "30": 12,
+            "40": 39,
+            "50": 37,
+            "60": 16
+          }
+        },
+        {
+          "batch": 8,
+          "events": 3,
+          "watermark": 245,
+          "state_rows": 2,
+          "state_json_bytes": 51,
+          "finalized_windows": {
+            "10": 76,
+            "20": 7,
+            "30": 12,
+            "40": 39,
+            "50": 37,
+            "60": 16
+          }
+        },
+        {
+          "batch": 9,
+          "events": 3,
+          "watermark": 245,
+          "state_rows": 2,
+          "state_json_bytes": 51,
+          "finalized_windows": {
+            "10": 76,
+            "20": 7,
+            "30": 12,
+            "40": 39,
+            "50": 37,
+            "60": 16
+          }
+        },
+        {
+          "batch": 10,
+          "events": 3,
+          "watermark": 245,
+          "state_rows": 4,
+          "state_json_bytes": 80,
+          "finalized_windows": {
+            "10": 76,
+            "20": 7,
+            "30": 12,
+            "40": 39,
+            "50": 37,
+            "60": 16
+          }
+        },
+        {
+          "batch": 11,
+          "events": 2,
+          "watermark": 255,
+          "state_rows": 3,
+          "state_json_bytes": 63,
+          "finalized_windows": {
+            "10": 76,
+            "20": 7,
+            "30": 12,
+            "40": 39,
+            "50": 37,
+            "60": 16
+          }
+        }
+      ],
+      "accepted_ids": [
+        "order-0",
+        "order-1",
+        "order-2",
+        "order-3",
+        "order-4",
+        "late-original",
+        "order-5",
+        "order-7",
+        "order-9",
+        "order-10",
+        "order-12",
+        "order-13",
+        "order-15",
+        "order-17",
+        "order-18",
+        "order-19",
+        "order-20",
+        "order-21",
+        "order-27",
+        "order-28",
+        "clock-skew",
+        "late-original"
+      ],
+      "dropped_ids": [
+        "order-0",
+        "order-6",
+        "order-8",
+        "order-16",
+        "order-11",
+        "order-14",
+        "order-14",
+        "order-26",
+        "order-28",
+        "order-29",
+        "order-32",
+        "order-22",
+        "order-23",
+        "order-24",
+        "order-34",
+        "order-36",
+        "order-25",
+        "order-37",
+        "order-38",
+        "order-30",
+        "order-31",
+        "order-33",
+        "order-35",
+        "order-39",
+        "order-35",
+        "very-late"
+      ]
+    },
+    {
+      "scope": "deterministic authored operator model; not Spark execution",
+      "policy": {
+        "delay": 30,
+        "window": 10,
+        "terminal_flush": true
+      },
+      "oracle": {
+        "10": 106,
+        "20": 24,
+        "30": 41,
+        "40": 58,
+        "50": 73,
+        "60": 66,
+        "260": 1,
+        "70": 48,
+        "80": 49
+      },
+      "output": {
+        "10": 76,
+        "20": 24,
+        "30": 41,
+        "40": 58,
+        "50": 37,
+        "60": 16,
+        "260": 1,
+        "270": 20
+      },
+      "open_aggregates": {},
+      "metrics": {
+        "absolute_aggregate_error": 233,
+        "lost_distinct_ids": 17,
+        "duplicate_leakage": 1,
+        "dropped_late_deliveries": 20,
+        "peak_state_rows": 32,
+        "peak_state_json_bytes": 436,
+        "max_finalize_delay_batches": 7,
+        "finalized_window_count": 8,
+        "pending_window_count": 0,
+        "latency_censored": false,
+        "oldest_pending_age_batches": null
+      },
+      "trace": [
+        {
+          "batch": 0,
+          "events": 6,
+          "watermark": -1,
+          "state_rows": 7,
+          "state_json_bytes": 118,
+          "finalized_windows": {}
+        },
+        {
+          "batch": 1,
+          "events": 4,
+          "watermark": -22,
+          "state_rows": 11,
+          "state_json_bytes": 164,
+          "finalized_windows": {}
+        },
+        {
+          "batch": 2,
+          "events": 4,
+          "watermark": -12,
+          "state_rows": 15,
+          "state_json_bytes": 214,
+          "finalized_windows": {}
+        },
+        {
+          "batch": 3,
+          "events": 4,
+          "watermark": -4,
+          "state_rows": 20,
+          "state_json_bytes": 278,
+          "finalized_windows": {}
+        },
+        {
+          "batch": 4,
+          "events": 5,
+          "watermark": 8,
+          "state_rows": 26,
+          "state_json_bytes": 355,
+          "finalized_windows": {}
+        },
+        {
+          "batch": 5,
+          "events": 6,
+          "watermark": 12,
+          "state_rows": 32,
+          "state_json_bytes": 436,
+          "finalized_windows": {
+            "10": 76
+          }
+        },
+        {
+          "batch": 6,
+          "events": 5,
+          "watermark": 220,
+          "state_rows": 2,
+          "state_json_bytes": 51,
+          "finalized_windows": {
+            "10": 76,
+            "20": 24,
+            "30": 41,
+            "40": 58,
+            "50": 37,
+            "60": 16
+          }
+        },
+        {
+          "batch": 7,
+          "events": 5,
+          "watermark": 220,
+          "state_rows": 2,
+          "state_json_bytes": 51,
+          "finalized_windows": {
+            "10": 76,
+            "20": 24,
+            "30": 41,
+            "40": 58,
+            "50": 37,
+            "60": 16
+          }
+        },
+        {
+          "batch": 8,
+          "events": 3,
+          "watermark": 220,
+          "state_rows": 2,
+          "state_json_bytes": 51,
+          "finalized_windows": {
+            "10": 76,
+            "20": 24,
+            "30": 41,
+            "40": 58,
+            "50": 37,
+            "60": 16
+          }
+        },
+        {
+          "batch": 9,
+          "events": 3,
+          "watermark": 220,
+          "state_rows": 2,
+          "state_json_bytes": 51,
+          "finalized_windows": {
+            "10": 76,
+            "20": 24,
+            "30": 41,
+            "40": 58,
+            "50": 37,
+            "60": 16
+          }
+        },
+        {
+          "batch": 10,
+          "events": 3,
+          "watermark": 220,
+          "state_rows": 4,
+          "state_json_bytes": 80,
+          "finalized_windows": {
+            "10": 76,
+            "20": 24,
+            "30": 41,
+            "40": 58,
+            "50": 37,
+            "60": 16
+          }
+        },
+        {
+          "batch": 11,
+          "events": 2,
+          "watermark": 230,
+          "state_rows": 4,
+          "state_json_bytes": 80,
+          "finalized_windows": {
+            "10": 76,
+            "20": 24,
+            "30": 41,
+            "40": 58,
+            "50": 37,
+            "60": 16
+          }
+        }
+      ],
+      "accepted_ids": [
+        "order-0",
+        "order-1",
+        "order-2",
+        "order-3",
+        "order-4",
+        "late-original",
+        "order-5",
+        "order-7",
+        "order-9",
+        "order-10",
+        "order-12",
+        "order-13",
+        "order-15",
+        "order-17",
+        "order-18",
+        "order-19",
+        "order-6",
+        "order-8",
+        "order-16",
+        "order-20",
+        "order-21",
+        "order-11",
+        "order-14",
+        "order-27",
+        "order-28",
+        "clock-skew",
+        "late-original"
+      ],
+      "dropped_ids": [
+        "order-14",
+        "order-26",
+        "order-28",
+        "order-29",
+        "order-32",
+        "order-22",
+        "order-23",
+        "order-24",
+        "order-34",
+        "order-36",
+        "order-25",
+        "order-37",
+        "order-38",
+        "order-30",
+        "order-31",
+        "order-33",
+        "order-35",
+        "order-39",
+        "order-35",
+        "very-late"
+      ]
+    },
+    {
+      "scope": "deterministic authored operator model; not Spark execution",
+      "policy": {
+        "delay": 300,
+        "window": 10,
+        "terminal_flush": true
+      },
+      "oracle": {
+        "10": 106,
+        "20": 24,
+        "30": 41,
+        "40": 58,
+        "50": 73,
+        "60": 66,
+        "260": 1,
+        "70": 48,
+        "80": 49
+      },
+      "output": {
+        "10": 106,
+        "20": 24,
+        "30": 41,
+        "40": 58,
+        "50": 73,
+        "60": 66,
+        "260": 1,
+        "70": 48,
+        "80": 49
+      },
+      "open_aggregates": {},
+      "metrics": {
+        "absolute_aggregate_error": 0,
+        "lost_distinct_ids": 0,
+        "duplicate_leakage": 0,
+        "dropped_late_deliveries": 0,
+        "peak_state_rows": 52,
+        "peak_state_json_bytes": 742,
+        "max_finalize_delay_batches": 12,
+        "finalized_window_count": 9,
+        "pending_window_count": 0,
+        "latency_censored": false,
+        "oldest_pending_age_batches": null
+      },
+      "trace": [
+        {
+          "batch": 0,
+          "events": 6,
+          "watermark": -1,
+          "state_rows": 7,
+          "state_json_bytes": 124,
+          "finalized_windows": {}
+        },
+        {
+          "batch": 1,
+          "events": 4,
+          "watermark": -292,
+          "state_rows": 11,
+          "state_json_bytes": 173,
+          "finalized_windows": {}
+        },
+        {
+          "batch": 2,
+          "events": 4,
+          "watermark": -282,
+          "state_rows": 15,
+          "state_json_bytes": 226,
+          "finalized_windows": {}
+        },
+        {
+          "batch": 3,
+          "events": 4,
+          "watermark": -274,
+          "state_rows": 20,
+          "state_json_bytes": 294,
+          "finalized_windows": {}
+        },
+        {
+          "batch": 4,
+          "events": 5,
+          "watermark": -262,
+          "state_rows": 26,
+          "state_json_bytes": 376,
+          "finalized_windows": {}
+        },
+        {
+          "batch": 5,
+          "events": 6,
+          "watermark": -258,
+          "state_rows": 33,
+          "state_json_bytes": 469,
+          "finalized_windows": {}
+        },
+        {
+          "batch": 6,
+          "events": 5,
+          "watermark": -50,
+          "state_rows": 37,
+          "state_json_bytes": 522,
+          "finalized_windows": {}
+        },
+        {
+          "batch": 7,
+          "events": 5,
+          "watermark": -50,
+          "state_rows": 43,
+          "state_json_bytes": 605,
+          "finalized_windows": {}
+        },
+        {
+          "batch": 8,
+          "events": 3,
+          "watermark": -50,
+          "state_rows": 46,
+          "state_json_bytes": 650,
+          "finalized_windows": {}
+        },
+        {
+          "batch": 9,
+          "events": 3,
+          "watermark": -50,
+          "state_rows": 49,
+          "state_json_bytes": 695,
+          "finalized_windows": {}
+        },
+        {
+          "batch": 10,
+          "events": 3,
+          "watermark": -50,
+          "state_rows": 51,
+          "state_json_bytes": 725,
+          "finalized_windows": {}
+        },
+        {
+          "batch": 11,
+          "events": 2,
+          "watermark": -40,
+          "state_rows": 52,
+          "state_json_bytes": 742,
+          "finalized_windows": {}
+        }
+      ],
+      "accepted_ids": [
+        "order-0",
+        "order-1",
+        "order-2",
+        "order-3",
+        "order-4",
+        "late-original",
+        "order-5",
+        "order-7",
+        "order-9",
+        "order-10",
+        "order-12",
+        "order-13",
+        "order-15",
+        "order-17",
+        "order-18",
+        "order-19",
+        "order-6",
+        "order-8",
+        "order-16",
+        "order-20",
+        "order-21",
+        "order-11",
+        "order-14",
+        "order-27",
+        "order-28",
+        "clock-skew",
+        "order-26",
+        "order-29",
+        "order-32",
+        "order-22",
+        "order-23",
+        "order-24",
+        "order-34",
+        "order-36",
+        "order-25",
+        "order-37",
+        "order-38",
+        "order-30",
+        "order-31",
+        "order-33",
+        "order-35",
+        "order-39",
+        "very-late"
+      ],
+      "dropped_ids": []
+    }
+  ],
+  "seed": 7
+}
